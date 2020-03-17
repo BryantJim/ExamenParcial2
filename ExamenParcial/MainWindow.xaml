@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExamenParcial"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Menu Principal" Height="200" Width="300">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="RegistrarButton" Content="Registrar" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="RegistrarButton_Click"/>
+        <Button x:Name="ConsultarButton" Content="Consultar" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="ConsultarButton_Click"/>
 
     </Grid>
 </Window>

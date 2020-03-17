@@ -1,0 +1,106 @@
+﻿<Window x:Class="ExamenParcial.UI.RLlamadas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExamenParcial.UI"
+        mc:Ignorable="d"
+        Title="Registro Llamadas" Height="450" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="156*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="61*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="108*"/>
+            <ColumnDefinition Width="215*"/>
+            <ColumnDefinition Width="177*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock HorizontalAlignment="Center"  Text="Llamada Id" TextWrapping="Wrap" VerticalAlignment="Center" Height="15" Width="58"/>
+
+        <TextBlock HorizontalAlignment="Center" Grid.Row="1" Text="Descripción" TextWrapping="Wrap" VerticalAlignment="Center" Height="15" Width="62"/>
+
+        <GroupBox Header="Agregar problema y solución" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" Margin="0,47,0,0"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="39,24,0,0" Grid.Row="2" Text="Problema" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="57"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="37,7,0,0" Grid.Row="3" Text="Solución" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="47"/>
+
+        <DataGrid x:Name="DetalleDataGrid" Grid.Row="4" Margin="5,1,0,8" HorizontalAlignment="Left" Width="488" Grid.ColumnSpan="3">
+            <DataGrid.ItemsSource>
+                <Binding Path="LlamadasDetalle" Mode="TwoWay"/>
+            </DataGrid.ItemsSource>
+        </DataGrid>
+
+        <TextBox x:Name="LlamadaIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="70" Height="19">
+            <TextBox.Text>
+                <Binding Path="LlamadaId" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <TextBox x:Name="DescripcionTextBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="180" Height="19">
+            <TextBox.Text>
+                <Binding Path="Descripcion" Mode="TwoWay"/>
+            </TextBox.Text>
+        </TextBox>
+
+        <TextBox x:Name="ProblemaTextBox" Grid.Column="1" HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.Row="2" Height="18">
+            <TextBox.Text>
+                <Binding Path="LlamadasDetalle.Problema" Mode="TwoWay"/>
+            </TextBox.Text>
+        </TextBox>
+
+        <TextBox x:Name="SolucionTextBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3"  TextWrapping="Wrap" VerticalAlignment="Center" Width="180" Height="18">
+            <TextBox.Text>
+                <Binding Path="LlamadasDetalle.Solucion" Mode="TwoWay"/>
+            </TextBox.Text>
+        </TextBox>
+
+        <Button x:Name="BuscarButton" Content="Buscar" Grid.Column="2" HorizontalContentAlignment="Right" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="58" Height="19" Click="BuscarButton_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="\Resources\Buscar.png" AlignmentX="Left" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="NuevoButton" Content="Nuevo" HorizontalContentAlignment="Right" HorizontalAlignment="Center"  Grid.Row="6" VerticalAlignment="Top" Width="58" Height="19" Margin="0,3,0,0" Click="NuevoButton_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="\Resources\Nuevo.png" Stretch="Uniform" AlignmentX="Left"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="GuardarButton" Content="Guardar" HorizontalContentAlignment="Right" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Top" Width="62" Height="19" Margin="0,3,0,0" Click="GuardarButton_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="\Resources\Guardar.png" Stretch="Uniform" AlignmentX="Left"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="EliminarButton" Content="Eliminar" HorizontalContentAlignment="Right" Grid.Column="2" HorizontalAlignment="Center"  Grid.Row="6" VerticalAlignment="Top" Width="62" Height="19" Margin="0,3,0,0" Click="EliminarButton_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="\Resources\Eliminar.png" AlignmentX="Left" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="AgregarButton" Content="Agregar" Grid.Column="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" Margin="0,3,0,0" Grid.Row="3" VerticalAlignment="Top" Width="63" Click="AgregarButton_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="\Resources\Agregar.png" AlignmentX="Left" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="RemoverFilaButton" Content="Remover fila" HorizontalContentAlignment="Right" HorizontalAlignment="Left"  Grid.Row="5" VerticalAlignment="Top" Width="90" Margin="7,5,0,0" Click="RemoverFilaButton_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="\Resources\Eliminar.png" Stretch="Uniform" AlignmentX="Left"/>
+            </Button.Background>
+        </Button>
+
+
+
+    </Grid>
+</Window>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExamenParcial.UI;
 
 namespace ExamenParcial
 {
@@ -23,6 +24,18 @@ namespace ExamenParcial
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void RegistrarButton_Click(object sender, RoutedEventArgs e)
+        {
+            RLlamadas registrarLlamada = new RLlamadas();
+            registrarLlamada.Show();
+        }
+
+        private void ConsultarButton_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultarLlamadas consultarLlamadas = new ConsultarLlamadas();
+            consultarLlamadas.Show();
         }
     }
 }
